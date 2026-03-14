@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>BoardPilot PYQ Viewer</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="icon" href="logo.png">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>BoardPilot PYQ Viewer</h1>
+
+<button onclick="history.back()" 
+style="margin-top:15px;padding:8px 15px;border:none;border-radius:6px;background:#2563eb;color:white;cursor:pointer;">
+⬅ Back
+</button>
+
+</header>
+
+<div style="margin:20px">
+
+<a id="downloadBtn" href="#" download>
+
+<button style="padding:12px 20px;font-size:16px;border:none;border-radius:8px;background:#22c55e;color:white;cursor:pointer;">
+Download PDF
+</button>
+
+</a>
+
+</div>
+
+<p>Loading PYQ PDF...</p>
+
+<iframe id="pdfFrame" width="100%" height="700" style="border:none;"></iframe>
+
+<script>
+
+const params=new URLSearchParams(window.location.search);
+
+const file=params.get("file");
+
+if(!file){
+
+document.body.innerHTML="PDF not found";
+
+}
+
+document.getElementById("pdfFrame").src="pdf/"+file;
+
+document.getElementById("downloadBtn").href="pdf/"+file;
+
+</script>
+
+<footer>
+
+<p>© 2026 BoardPilot • CBSE PYQs Platform</p>
+
+</footer>
+
+</body>
+</html>
